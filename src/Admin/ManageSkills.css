@@ -1,0 +1,320 @@
+/* ==========================================================================
+   1. CORE PANEL LAYOUT CONTAINER & HEADER
+   ========================================================================== */
+.skills-mgmt-container {
+  padding: 24px;
+  color: #ffffff;
+  width: 100%;
+}
+
+.skills-mgmt-header {
+  margin-bottom: 32px;
+}
+
+.skills-mgmt-header h3 {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.skills-mgmt-header p {
+  font-size: 14px;
+  color: #64748b;
+  margin-top: 4px;
+}
+
+/* Two Column Splitting Dashboard Grid System Workspace */
+.skills-mgmt-split-workspace {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .skills-mgmt-split-workspace {
+    grid-template-columns: 1fr 1.2fr; /* Input form panel scales left, current array cards on right */
+  }
+}
+
+/* ==========================================================================
+   2. CONFIGURATION CONTROL INPUT FORM CARD
+   ========================================================================== */
+.skills-form-card {
+  background: #0f172a;
+  border: 1px solid #1e293b;
+  border-radius: 12px;
+  padding: 32px;
+}
+
+.skills-form-card h4 {
+  font-size: 1.15rem;
+  margin: 0 0 24px 0;
+  font-weight: 700;
+}
+
+.plain-styled-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-input-group label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.plain-styled-form input[type="text"],
+.plain-styled-form input[type="file"] {
+  background: #020617;
+  border: 1px solid #1e293b;
+  border-radius: 8px;
+  padding: 12px;
+  color: #ffffff;
+  font-size: 14px;
+  outline: none;
+  width: 100%;
+  transition: border-color 0.2s ease;
+}
+
+.plain-styled-form input[type="file"] {
+  background: #020617;
+  border: 1px dashed #1e293b;
+  padding: 12px;
+  font-size: 13px;
+  color: #94a3b8;
+}
+
+.plain-styled-form input[type="range"] {
+  width: 100%;
+  padding: 8px 0;
+}
+
+.plain-styled-form input:focus {
+  border-color: #3b82f6;
+}
+
+/* Operational Workflow Dispatch Action Row */
+.form-execution-action-bar {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.primary-action-dispatch-btn {
+  flex: 1;
+  background-color: #3b82f6;
+  color: #ffffff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.2s ease;
+}
+
+.primary-action-dispatch-btn:hover:not(:disabled) {
+  background-color: #2563eb;
+}
+
+.primary-action-dispatch-btn:disabled {
+  background-color: #1e293b;
+  color: #64748b;
+  cursor: not-allowed;
+}
+
+.secondary-cancel-btn {
+  background: transparent;
+  border: 1px solid #334155;
+  color: #94a3b8;
+  padding: 12px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.secondary-cancel-btn:hover {
+  border-color: #64748b;
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   3. ACTIVE RESOURCE DATA STREAM LIST
+   ========================================================================== */
+.skills-display-stream {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.grid-display-header-title {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #64748b;
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+.empty-table-fallback-card {
+  padding: 32px;
+  text-align: center;
+  border: 1px dashed #1e293b;
+  border-radius: 12px;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.skills-cards-grid-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.skill-item-row-card {
+  background: #0f172a;
+  border: 1px solid #1e293b;
+  border-radius: 10px;
+  padding: 14px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  transition: border-color 0.2s;
+}
+
+.skill-item-row-card:hover {
+  border-color: #3b82f6;
+}
+
+.skill-card-left-identity {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: 1;
+}
+
+.skill-avatar-frame {
+  width: 44px;
+  height: 44px;
+  background: #020617;
+  border: 1px solid #1e293b;
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  flex-shrink: 0;
+}
+
+.skill-avatar-frame img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.skill-card-left-identity h5 {
+  font-size: 15px;
+  margin: 0 0 2px 0;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.stars-lbl-mono {
+  font-size: 13px;
+  color: #fbbf24;
+  font-family: monospace;
+  letter-spacing: 0.05em;
+  display: block;
+}
+
+/* Administrative Action Trigger Nodes Column */
+.card-administrative-actions-row {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.crud-control-btn-edit,
+.crud-control-btn-delete {
+  background: #1e293b;
+  border: 1px solid #334155;
+  color: #cbd5e1;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.crud-control-btn-edit:hover {
+  background: rgba(59, 130, 246, 0.15);
+  border-color: #3b82f6;
+  color: #3b82f6;
+}
+
+.crud-control-btn-delete:hover {
+  background: rgba(239, 68, 68, 0.15);
+  border-color: #ef4444;
+  color: #ef4444;
+}
+
+.skills-mgmt-loading {
+  padding: 60px 20px;
+  text-align: center;
+  color: #64748b;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   4. MOBILE RESPONSIVE OVERRIDES (Desktop-First Strategy)
+   ========================================================================== */
+@media (max-width: 640px) {
+  .skills-mgmt-container {
+    padding: 16px 8px;
+  }
+
+  .skills-form-card {
+    padding: 24px 16px; /* Increases density spacing on phone layouts */
+  }
+
+  .skill-item-row-card {
+    flex-direction: column; /* Transforms layout cards into top-to-bottom vertical flows */
+    align-items: stretch;
+    gap: 14px;
+    padding: 16px;
+  }
+
+  .skill-card-left-identity {
+    align-items: center;
+    text-align: center;
+    flex-direction: column; /* Center-aligns technology badges with title stars on phones */
+    gap: 10px;
+  }
+
+  .card-administrative-actions-row {
+    border-top: 1px solid #1e293b;
+    padding-top: 12px;
+    justify-content: center; /* Center balances row actions underneath properties meta elements */
+  }
+
+  .card-administrative-actions-row button {
+    flex: 1; /* Spans matching horizontal widths on phone screens */
+    padding: 8px 16px !important; /* Overrides component inline constraints comfortably */
+    font-size: 13px !important;
+    text-align: center;
+    max-width: 120px;
+  }
+}

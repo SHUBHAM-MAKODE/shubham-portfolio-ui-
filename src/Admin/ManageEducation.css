@@ -1,0 +1,341 @@
+/* ==========================================================================
+   1. Core Layout Structure Container
+   ========================================================================== */
+.edu-mgmt-container {
+  padding: 24px;
+  color: #ffffff;
+  width: 100%;
+}
+
+.edu-mgmt-header {
+  margin-bottom: 32px;
+}
+
+.edu-mgmt-header h3 {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+}
+
+.edu-mgmt-header p {
+  font-size: 14px;
+  color: #64748b;
+  margin: 0;
+}
+
+/* Split Column Display Blueprint workspace grid */
+.edu-mgmt-split-workspace {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .edu-mgmt-split-workspace {
+    grid-template-columns: 1.2fr 1fr; /* Form panel maps left side, Active cards stream on the right */
+  }
+}
+
+/* ==========================================================================
+   2. Interactive Form Card & Elements
+   ========================================================================== */
+.edu-form-card {
+  background: #0f172a;
+  border: 1px solid #1e293b;
+  border-radius: 12px;
+  padding: 32px;
+}
+
+.edu-form-card h4 {
+  font-size: 1.15rem;
+  margin: 0 0 24px 0;
+  font-weight: 700;
+}
+
+.form-group-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+@media (min-width: 640px) {
+  .form-group-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.single-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.single-input-wrapper label,
+.points-master-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.single-input-wrapper input {
+  background: #020617;
+  border: 1px solid #1e293b;
+  border-radius: 6px;
+  padding: 12px;
+  color: #ffffff;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.single-input-wrapper input:focus {
+  border-color: #3b82f6;
+}
+
+/* ==========================================================================
+   3. Dynamic Form Field Appends
+   ========================================================================== */
+.dynamic-points-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.point-input-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.point-input-row input {
+  flex: 1;
+  background: #020617;
+  border: 1px solid #1e293b;
+  border-radius: 6px;
+  padding: 10px 14px;
+  color: #ffffff;
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.point-input-row input:focus {
+  border-color: #3b82f6;
+}
+
+.remove-point-btn {
+  background: transparent;
+  border: none;
+  color: #ef4444;
+  cursor: pointer;
+  padding: 8px;
+  font-size: 14px;
+  transition: opacity 0.2s;
+}
+
+.remove-point-btn:hover {
+  opacity: 0.8;
+}
+
+.add-point-field-trigger {
+  background: rgba(59, 130, 246, 0.05);
+  border: 1px dashed rgba(59, 130, 246, 0.2);
+  color: #3b82f6;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.add-point-field-trigger:hover {
+  background: rgba(59, 130, 246, 0.1);
+  border-color: #3b82f6;
+}
+
+/* Form Action Dispatch Layout Buttons */
+.form-execution-action-bar {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap; /* Safety wrap if button elements crowd mobile rows */
+  border-top: 1px solid #1e293b;
+  padding-top: 24px;
+}
+
+.primary-action-dispatch-btn {
+  background-color: #3b82f6;
+  border: none;
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.primary-action-dispatch-btn:hover:not(:disabled) {
+  background-color: #2563eb;
+}
+
+.primary-action-dispatch-btn:disabled {
+  background-color: #1e293b;
+  color: #64748b;
+  cursor: not-allowed;
+}
+
+.secondary-cancel-btn {
+  background-color: transparent;
+  border: 1px solid #334155;
+  color: #94a3b8;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.secondary-cancel-btn:hover {
+  border-color: #64748b;
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   4. Active Output Data Stream Cards
+   ========================================================================== */
+.edu-display-stream {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.grid-display-header-title {
+  font-size: 1.1rem;
+  margin: 0;
+  font-weight: 700;
+}
+
+.empty-table-fallback-card {
+  padding: 30px;
+  text-align: center;
+  border: 1px dashed #1e293b;
+  border-radius: 12px;
+  color: #64748b;
+  font-size: 0.95rem;
+}
+
+.edu-cards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.edu-item-card {
+  background: #0f172a;
+  border: 1px solid #1e293b;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.edu-card-main-body {
+  flex: 1;
+}
+
+.edu-card-main-body h5 {
+  font-size: 15px;
+  margin: 0 0 4px 0;
+  color: #ffffff;
+}
+
+.inst-lbl {
+  font-size: 13px;
+  color: #94a3b8;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 12px;
+  color: #64748b;
+}
+
+/* Administrative CRUD Action Columns */
+.card-administrative-actions-row {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.crud-control-btn-edit,
+.crud-control-btn-delete {
+  background: #1e293b;
+  border: 1px solid #334155;
+  color: #cbd5e1;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.crud-control-btn-edit:hover {
+  background: rgba(59, 130, 246, 0.15);
+  border-color: #3b82f6;
+  color: #3b82f6;
+}
+
+.crud-control-btn-delete:hover {
+  background: rgba(239, 68, 68, 0.15);
+  border-color: #ef4444;
+  color: #ef4444;
+}
+
+.edu-mgmt-loading {
+  padding: 60px 20px;
+  text-align: center;
+  color: #64748b;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+/* ==========================================================================
+   5. Mobile Responsive Adaptations (Desktop-First Strategy)
+   ========================================================================== */
+@media (max-width: 640px) {
+  .edu-mgmt-container {
+    padding: 16px 8px;
+  }
+
+  .edu-form-card {
+    padding: 24px 16px; /* Shrinks form padding to capture maximized phone screen dimensions */
+  }
+
+  .edu-item-card {
+    flex-direction: column; /* Stacks administrative controls cleanly directly under descriptive metadata fields */
+    align-items: stretch;
+    gap: 16px;
+    padding: 16px;
+  }
+
+  .card-administrative-actions-row {
+    justify-content: flex-end; /* Pushes Edit/Delete choices nicely to the bottom right boundary line */
+    border-top: 1px solid #1e293b;
+    padding-top: 12px;
+  }
+}

@@ -1,0 +1,406 @@
+/* ==========================================================================
+   1. Container Hierarchy & Heading Blocks
+   ========================================================================== */
+.project-panel-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-header-block h3 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+.project-header-block p {
+  font-size: 13px;
+  color: #64748b;
+  margin-top: 4px;
+  margin-bottom: 24px;
+}
+
+/* Two-Column Split Layout Configuration */
+.project-split-workspace {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+@media (min-width: 1200px) {
+  .project-split-workspace {
+    grid-template-columns: 5fr 7fr; /* Input desk scales on the left, data stream on the right */
+  }
+}
+
+/* ==========================================================================
+   2. Form Panel Layout Cards & Fields Architecture
+   ========================================================================== */
+.project-form-card {
+  background: rgba(15, 23, 42, 0.4);
+  border: 1px solid #1e293b;
+  border-radius: 16px;
+  padding: 24px;
+  height: fit-content;
+}
+
+.form-action-title, .grid-display-header-title {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.plain-styled-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group-row {
+  display: grid;
+  grid-template-columns: 1fr; /* Default to single column for clean mobile inputs */
+  gap: 16px;
+}
+
+@media (min-width: 520px) {
+  .form-group-row {
+    grid-template-columns: 1fr 1fr; /* Restores side-by-side URL inputs on tablets and up */
+  }
+}
+
+.single-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.single-input-wrapper label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #94a3b8;
+  text-transform: uppercase;
+}
+
+.plain-styled-form input[type="text"],
+.plain-styled-form textarea {
+  background: #020617;
+  border: 1px solid #1e293b;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 13px;
+  color: #ffffff;
+  outline: none;
+  font-family: inherit;
+  width: 100%;
+  transition: border-color 0.2s ease;
+}
+
+.plain-styled-form textarea {
+  resize: vertical;
+}
+
+.plain-styled-form input:focus,
+.plain-styled-form textarea:focus {
+  border-color: #10b981;
+}
+
+.file-upload-wrapper-box {
+  background: #020617;
+  border: 1px dashed #1e293b;
+  padding: 16px;
+  border-radius: 12px;
+}
+
+.file-binary-selector {
+  font-size: 12px;
+  color: #94a3b8;
+  margin-top: 4px;
+  width: 100%;
+}
+
+/* Operational Dispatch Buttons */
+.form-execution-action-bar {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+  flex-wrap: wrap; /* Safety wrapping if buttons crowd narrow mobile screens */
+}
+
+.primary-action-dispatch-btn {
+  flex: 1;
+  background: #10b981;
+  color: #020617;
+  border: none;
+  border-radius: 10px;
+  padding: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.2s ease;
+}
+
+.primary-action-dispatch-btn:hover {
+  background: #34d399;
+}
+
+.primary-action-dispatch-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.secondary-cancel-btn {
+  background: transparent;
+  border: 1px solid #1e293b;
+  color: #94a3b8;
+  padding: 12px 16px; /* Balanced padding height matching dispatch options */
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.secondary-cancel-btn:hover {
+  background: rgba(30, 41, 59, 0.3);
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   3. Right Viewport: Active Repository Profiles Stream
+   ========================================================================== */
+.project-display-stream {
+  display: flex;
+  flex-direction: column;
+}
+
+.empty-table-fallback-card {
+  text-align: center;
+  padding: 48px;
+  border: 1px dashed #1e293b;
+  border-radius: 16px;
+  color: #64748b;
+  font-size: 13px;
+}
+
+.project-cards-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-height: 720px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.project-cards-grid::-webkit-scrollbar {
+  width: 4px;
+}
+.project-cards-grid::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+.project-item-card {
+  background: rgba(15, 23, 42, 0.2);
+  border: 1px solid #1e293b;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card-image-box {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  background: #020617;
+  border-bottom: 1px solid #1e293b;
+  flex-shrink: 0;
+}
+
+.project-card-image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project-card-details-box {
+  padding: 20px;
+  flex: 1;
+}
+
+.project-card-details-box h5 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 8px 0;
+}
+
+.project-description-paragraph {
+  font-size: 13px;
+  color: #94a3b8;
+  line-height: 1.6;
+  margin: 0 0 16px 0;
+  user-select: text;
+}
+
+/* Technology Stack Badges Row */
+.tech-tags-flex-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.tech-chip-tag {
+  font-size: 10px;
+  font-family: monospace;
+  font-weight: 600;
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.15);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+/* Metadata URLs Links row */
+.project-links-metadata-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 12px;
+}
+
+.link-anchor-icon {
+  color: #60a5fa;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.link-anchor-icon:hover {
+  text-decoration: underline;
+}
+
+/* Administrative Lower Controls Row */
+.card-administrative-actions-row {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  border-top: 1px solid #1e293b;
+  padding: 12px 20px;
+  background: rgba(2, 6, 23, 0.2);
+}
+
+.crud-control-btn-edit, .crud-control-btn-delete {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.crud-control-btn-edit {
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  color: #60a5fa;
+}
+
+.crud-control-btn-delete {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  color: #f87171;
+}
+
+.crud-control-btn-edit:hover, .crud-control-btn-delete:hover {
+  opacity: 0.8;
+}
+
+/* System Loading Containers */
+.project-loading-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 0;
+}
+
+.loading-pulse-text {
+  font-size: 14px;
+  font-weight: 600;
+  color: #94a3b8;
+  letter-spacing: 0.05em;
+  animation: projectPulse 1.5s infinite ease-in-out;
+}
+
+@keyframes projectPulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+/* ==========================================================================
+   4. Mobile Responsive Adaptations (Desktop-First Strategy)
+   ========================================================================== */
+
+/* TABLETS AND MID-SIZE SCREENS */
+@media (min-width: 680px) and (max-width: 1200px) {
+  .project-item-card {
+    flex-direction: row; /* Converts vertical list columns into a horizontal alignment block layout */
+    align-items: stretch;
+  }
+  
+  .project-card-image-box {
+    width: 220px; /* Allocates a dedicated sidebar width window for display photos */
+    height: auto;
+    border-bottom: none;
+    border-right: 1px solid #1e293b;
+  }
+  
+  .card-administrative-actions-row {
+    flex-direction: column; /* Stacks administrative actions vertically on the card side */
+    justify-content: center;
+    border-top: none;
+    border-left: 1px solid #1e293b;
+    padding: 16px;
+  }
+}
+
+/* SMARTPHONES AND THIN PORTS */
+@media (max-width: 600px) {
+  .project-panel-container {
+    padding: 8px 0;
+  }
+  
+  .project-form-card {
+    padding: 20px 16px;
+  }
+  
+  .project-card-image-box {
+    height: 150px; /* Reduces landscape image bounding frameworks slightly */
+  }
+  
+  .project-card-details-box {
+    padding: 16px;
+  }
+  
+  .project-card-details-box h5 {
+    font-size: 15px;
+  }
+  
+  .card-administrative-actions-row {
+    width: 100%;
+    justify-content: stretch;
+  }
+  
+  .card-administrative-actions-row button {
+    flex: 1; /* Stretches edit/delete choice layouts full width on phones */
+    text-align: center;
+    padding: 8px;
+  }
+}

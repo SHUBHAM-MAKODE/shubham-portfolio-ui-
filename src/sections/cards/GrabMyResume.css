@@ -1,0 +1,248 @@
+/* ==========================================================================
+   1. Core Layout Structure Container
+   ========================================================================== */
+.resume-section {
+  width: 100%;
+  padding: 60px 5%; /* Adjusted padding for better integration into dashboard layouts */
+  background: #020617;
+  color: #ffffff;
+  box-sizing: border-box;
+}
+
+.resume-container {
+  display: flex;
+  flex-direction: row;
+  gap: 40px; /* Increased separation space between columns */
+  max-width: 1200px;
+  min-height: auto; /* CRITICAL FIX: Removed rigid height: 500px to allow content to expand naturally */
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.resume-info {
+  flex: 1.1; /* Proportional flex growth ensures layout stability on desktop screens */
+  max-width: 600px;
+}
+
+/* ==========================================================================
+   2. Typography & Call-To-Action Elements
+   ========================================================================== */
+.resume-heading {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin: 0 0 16px 0;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  background: linear-gradient(to right, #ffffff, #cbd5e1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.resume-subheading {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #94a3b8;
+  margin: 0 0 32px 0;
+}
+
+.resume-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.resume-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+.download-btn {
+  background-color: #3b82f6;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(59, 130, 246, 0.3);
+}
+
+.download-btn:hover {
+  background-color: #2563eb;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+}
+
+.preview-btn {
+  background-color: #1e293b;
+  color: #cbd5e1;
+  border-color: #334155;
+}
+
+.preview-btn:hover {
+  background-color: #334155;
+  color: #ffffff;
+}
+
+.preview-btn.active {
+  background-color: rgba(59, 130, 246, 0.1);
+  border-color: #3b82f6;
+  color: #60a5fa;
+}
+
+/* ==========================================================================
+   3. Right Side Panel: Quick Highlights Board
+   ========================================================================== */
+.resume-highlights {
+  flex: 0.9;
+  background: rgba(15, 23, 42, 0.4);
+  border: 1px solid #1e293b;
+  border-radius: 16px;
+  padding: 32px;
+  max-width: 420px;
+  width: 100%;
+}
+
+.resume-highlights h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0 0 20px 0;
+  color: #3b82f6;
+}
+
+.resume-highlights ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.resume-highlights li {
+  font-size: 0.95rem;
+  color: #cbd5e1;
+  line-height: 1.4;
+}
+
+.resume-highlights strong {
+  display: block;
+  color: #ffffff;
+  margin-bottom: 4px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ==========================================================================
+   4. Embedded Document Frame Panel (Iframe Preview Screen)
+   ========================================================================== */
+.resume-preview-panel {
+  margin-top: 48px;
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid #1e293b;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #0f172a;
+  animation: panelSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) ease-out;
+}
+
+@keyframes panelSlideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.preview-header {
+  background: #0b0f19;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #1e293b;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #94a3b8;
+}
+
+.close-preview {
+  background: none;
+  border: none;
+  color: #64748b;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.close-preview:hover {
+  color: #ef4444;
+}
+
+.resume-iframe {
+  width: 100%;
+  height: 700px; /* Expanded for better vertical document exploration on desktops */
+  border: none;
+  background-color: #ffffff;
+}
+
+/* ==========================================================================
+   5. Mobile Responsive Adaptations (Desktop-First Strategy)
+   ========================================================================== */
+
+/* 1. TABLET AND INTERMEDIATE PORTS (Widths less than 992px) */
+@media (max-width: 992px) {
+  .resume-container {
+    flex-direction: column; /* Stacks information column directly above technical skill matrices card */
+    gap: 32px;
+  }
+
+  .resume-info {
+    max-width: 100%;
+    text-align: center; /* Centers alignment for typography headers on mid-size views */
+  }
+
+  .resume-actions {
+    justify-content: center; /* Center-balances buttons layout row */
+  }
+
+  .resume-highlights {
+    max-width: 100%; /* Allows the highlights panel card to scale wider fluidly */
+  }
+}
+
+/* 2. SMARTPHONES AND THIN displays (Widths less than 576px) */
+@media (max-width: 576px) {
+  .resume-heading {
+    font-size: 1.8rem;
+  }
+
+  .resume-subheading {
+    font-size: 1rem;
+    margin-bottom: 24px;
+  }
+
+  .resume-btn {
+    width: 100%; /* Stretches both primary CTA triggers to full screen row widths */
+    justify-content: center;
+    padding: 14px;
+  }
+
+  .resume-highlights {
+    padding: 24px 20px;
+  }
+
+  .resume-iframe {
+    height: 480px; /* Proportional compression protects iframe scrolling limits inside phone screens */
+  }
+}

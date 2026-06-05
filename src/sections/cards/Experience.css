@@ -1,0 +1,186 @@
+/* ==========================================================================
+   1. Main Section Container Layout
+   ========================================================================== */
+.exp-display {
+  width: 100%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+.exp-heading {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  font-weight: bold;
+  text-align: center; /* Center balances the title heading cleanly across monitor scales */
+}
+
+.exp-card-container {
+  width: 85%; /* Slightly wider default footprint to match your portfolio sections */
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px; 
+}
+
+/* ==========================================================================
+   2. Experience Presentation Card Frame
+   ========================================================================== */
+.exp-card {
+  background-color: #262626; 
+  border-radius: 12px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  border: 1px solid #333;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.exp-card:hover {
+  border-color: #444;
+}
+
+/* Header Layout Mechanics */
+.exp-card-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  position: relative;
+  width: 100%;
+}
+
+.company-logo {
+  width: 45px;
+  height: 45px;
+  border-radius: 8px;
+  object-fit: cover;
+  background-color: #fff; 
+  flex-shrink: 0;
+}
+
+.header-info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.header-info h2 {
+  font-size: 1.35rem;
+  margin: 0 0 4px 0;
+  color: #ffffff;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.header-info h3 {
+  font-size: 1rem;
+  margin: 0;
+  color: #b3b3b3;
+  font-weight: normal;
+}
+
+.location-type {
+  color: #888;
+}
+
+.exp-duration {
+  font-size: 0.9rem;
+  color: #a3a3a3;
+  font-style: italic;
+  font-family: monospace; /* Kept clean and consistent with project metadata layouts */
+  white-space: nowrap; /* Prevents awkward date wrapping on laptop sizes */
+}
+
+/* ==========================================================================
+   3. Content Blocks: Bullets & Tech Skills
+   ========================================================================== */
+.exp-points {
+  margin: 4px 0;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.exp-points li {
+  font-size: 0.95rem;
+  color: #d4d4d4;
+  line-height: 1.6;
+  user-select: text;
+}
+
+/* Tech skill badges */
+.exp-tech-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.tech-tag {
+  background-color: #333333;
+  color: #e0e0e0;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: 1px solid #444;
+}
+
+/* ==========================================================================
+   4. Mobile Responsive Adaptations (Desktop-First Overrides)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .exp-heading {
+    font-size: 2rem;
+    margin-bottom: 28px;
+  }
+
+  .exp-card-container {
+    width: 100%; /* Spans full width on tablet and mobile viewports to maximize text space */
+  }
+
+  .exp-card-header {
+    flex-direction: column; /* Stacks structural rows vertically for legible breathing room */
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .header-info {
+    width: 100%;
+  }
+
+  .header-info h2 {
+    font-size: 1.2rem;
+  }
+
+  .exp-duration {
+    align-self: flex-start; /* Aligns timelines beautifully to the left edge below company tags */
+    border-top: 1px solid #333;
+    width: 100%;
+    padding-top: 10px;
+    margin-top: 2px;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .exp-card {
+    padding: 20px 16px; /* Extra compact block padding for tiny phones */
+    gap: 12px;
+  }
+
+  .exp-points {
+    padding-left: 16px; /* Drop bullet indentation slightly to expand text box limits */
+  }
+
+  .exp-points li {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+}

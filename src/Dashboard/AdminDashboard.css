@@ -1,0 +1,449 @@
+/* ==========================================================================
+   1. Dashboard Frame Architecture
+   ========================================================================== */
+.admin-dashboard-container {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #0b0c10; /* Unified core background style */
+  color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   2. Absolute Navigation Control Sidebar Layout
+   ========================================================================== */
+.dashboard-sidebar {
+  width: 280px;
+  background-color: #121212; /* Core theme glass base card tint */
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+  padding: 30px 20px;
+  flex-shrink: 0;
+}
+
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-left: 10px;
+  margin-bottom: 40px;
+}
+
+.brand-icon {
+  font-size: 1.5rem;
+  color: #6388f6; /* Custom portfolio theme accent blue */
+}
+
+.sidebar-brand h2 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+/* Navigation Button List Actions */
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.menu-item {
+  background: none;
+  border: none;
+  color: #cbd5e1;
+  padding: 14px 16px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.2s ease-in-out;
+}
+
+.menu-item:hover {
+  background-color: rgba(255, 255, 255, 0.03);
+  color: #fff;
+}
+
+.menu-item.active {
+  background-color: rgba(99, 136, 246, 0.15);
+  color: #6388f6;
+  font-weight: 700;
+  border: 1px solid rgba(99, 136, 246, 0.2);
+}
+
+.menu-icon {
+  font-size: 1.1rem;
+}
+
+/* Alert Notification Badge count */
+.badge-count {
+  margin-left: auto;
+  background-color: #ef4444;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 20px;
+}
+
+/* Sidebar Session Terminate Controller Layout */
+.sidebar-logout-btn {
+  background: none;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.2s ease;
+  margin-top: 20px;
+}
+
+.sidebar-logout-btn:hover {
+  background-color: rgba(239, 68, 68, 0.1);
+}
+
+/* ==========================================================================
+   3. Workspace Main Dashboard Display Platform Layout
+   ========================================================================== */
+.dashboard-main-content {
+  flex-grow: 1;
+  padding: 40px 50px;
+  overflow-y: auto;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+.content-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 35px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 25px;
+  gap: 16px;
+}
+
+.content-header h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0 0 4px 0;
+}
+
+.content-header p {
+  color: #a3a3a3;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.admin-status-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #1c1c1e;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.status-dot-green {
+  width: 8px;
+  height: 8px;
+  background-color: #10b981;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #10b981;
+}
+
+/* Tab Switching Fade Animation entry track */
+.dashboard-view-fade {
+  animation: viewEnter 0.4s cubic-bezier(0.16, 1, 0.3, 1) ease-out;
+}
+
+@keyframes viewEnter {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+   4. Statistical Metrics Dashboard Analytics Cards Grid
+   ========================================================================== */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 25px;
+  margin-bottom: 35px;
+}
+
+.stat-card {
+  background-color: #121212;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.stat-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+.stat-icon {
+  font-size: 1.3rem;
+  background-color: rgba(255, 255, 255, 0.03);
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.stat-change {
+  font-size: 0.75rem;
+  color: #10b981;
+  font-weight: 500;
+  background-color: rgba(16, 185, 129, 0.1);
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.stat-change.alert-txt {
+  color: #ef4444;
+  background-color: rgba(239, 68, 68, 0.1);
+}
+
+.stat-card h3 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin: 0 0 4px 0;
+}
+
+.stat-card p {
+  margin: 0;
+  color: #cbd5e1;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   5. Secondary Panel Workspace & Split Layout Tracks
+   ========================================================================== */
+.dashboard-workspace-split {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+.workspace-panel {
+  background-color: #121212;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.25);
+  overflow: hidden; /* Prevents container bleeding issues */
+}
+
+.workspace-panel h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 25px 0;
+  color: #fff;
+}
+
+/* Custom Data Table Element Structures */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch; /* Fast kinetic touch momentum scroll for iOS devices */
+}
+
+.custom-dashboard-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.custom-dashboard-table th {
+  padding: 14px 16px;
+  font-size: 0.85rem;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  white-space: nowrap;
+}
+
+.custom-dashboard-table td {
+  padding: 16px;
+  font-size: 0.95rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  color: #cbd5e1;
+  white-space: nowrap; /* Keeps clean table matrix layouts readable horizontally */
+}
+
+.table-sender-name {
+  font-weight: 600;
+  color: #fff;
+}
+
+.table-sender-subtext {
+  font-size: 0.8rem;
+  color: #888;
+  margin-top: 2px;
+}
+
+.table-action-btn.view {
+  background-color: rgba(99, 136, 246, 0.1);
+  border: 1px solid rgba(99, 136, 246, 0.2);
+  color: #6388f6;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.table-action-btn.view:hover {
+  background-color: #6388f6;
+  color: #fff;
+}
+
+/* Quick Form Action Buttons Layout */
+.quick-actions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.quick-action-row-btn {
+  background-color: #1c1c1e;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  color: #cbd5e1;
+  padding: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.2s ease-in-out;
+}
+
+.quick-action-row-btn:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  border-color: rgba(99, 136, 246, 0.2);
+}
+
+.tab-placeholder-msg {
+  color: #888;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   6. Responsive Viewport Adaptations (Desktop-First Overrides)
+   ========================================================================== */
+@media (max-width: 1100px) {
+  .dashboard-workspace-split {
+    grid-template-columns: 1fr; /* Force single panel layout stacking on tablet screens */
+  }
+}
+
+@media (max-width: 850px) {
+  .admin-dashboard-container {
+    flex-direction: column; /* Stacks sidebar menu above main view space dynamically */
+  }
+
+  .dashboard-sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 20px 16px;
+  }
+
+  .sidebar-brand {
+    margin-bottom: 16px;
+    justify-content: space-between;
+  }
+
+  .sidebar-menu {
+    flex-direction: row; /* CRITICAL FIX: Forces navigation items onto a flat inline horizontal track */
+    overflow-x: auto;
+    padding: 4px 0 12px 0;
+    scrollbar-width: none; /* Hides horizontal slider tracks on Firefox */
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .sidebar-menu::-webkit-scrollbar {
+    display: none; /* Hides scrollbar on Chrome, Safari, and Opera */
+  }
+
+  .menu-item {
+    white-space: nowrap; /* Prevents administrative tab descriptions from wrapping awkwardly */
+    padding: 10px 14px;
+    font-size: 0.9rem;
+  }
+
+  .sidebar-logout-btn {
+    margin-top: 10px;
+    padding: 10px;
+    width: 100%;
+  }
+
+  .dashboard-main-content {
+    padding: 24px 16px;
+    height: auto; /* Overrides 100vh lock to let sub-render components flow down mobile page screens naturally */
+  }
+
+  .content-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding-bottom: 16px;
+    margin-bottom: 24px;
+  }
+  
+  .content-header h1 {
+    font-size: 1.6rem;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); /* Balances metrics spacing grids on phone rows */
+    gap: 16px;
+  }
+  
+  .stat-card {
+    padding: 16px;
+  }
+  
+  .stat-card h3 {
+    font-size: 1.75rem;
+  }
+
+  .workspace-panel {
+    padding: 20px 16px;
+  }
+}

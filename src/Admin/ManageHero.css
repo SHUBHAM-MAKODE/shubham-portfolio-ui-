@@ -1,0 +1,341 @@
+/* ==========================================================================
+   1. MASTER LAYOUT CONTAINER & HEADER
+   ========================================================================== */
+.hero-mgmt-container {
+  padding: 24px;
+  color: #ffffff;
+  width: 100%;
+}
+
+.hero-mgmt-header {
+  margin-bottom: 32px;
+}
+
+.hero-mgmt-header h3 {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+}
+
+.hero-mgmt-header p {
+  font-size: 14px;
+  color: #64748b;
+  margin: 0;
+}
+
+/* ==========================================================================
+   2. TWO-COLUMN SPLIT WORKSPACE GRID
+   ========================================================================== */
+.hero-mgmt-split-workspace {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .hero-mgmt-split-workspace {
+    grid-template-columns: 1.2fr 1fr; /* Form maps on the left, live array stream monitor on the right */
+  }
+}
+
+/* ==========================================================================
+   3. LEFT COLUMN: CONFIGURATION CONTROL FORM CARD
+   ========================================================================== */
+.hero-mgmt-card {
+  background: #0f172a;
+  border: 1px solid #1e293b;
+  border-radius: 12px;
+  padding: 32px;
+}
+
+.hero-mgmt-card h4 {
+  font-size: 16px;
+  margin: 0 0 24px 0;
+  color: #3b82f6;
+  font-weight: 700;
+}
+
+.dynamic-roles-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.dynamic-roles-list label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+}
+
+.role-input-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.role-index-lbl {
+  font-family: monospace;
+  color: #475569;
+  font-size: 14px;
+  min-width: 24px;
+}
+
+.role-input-row input {
+  flex: 1;
+  background: #020617;
+  border: 1px solid #1e293b;
+  border-radius: 6px;
+  padding: 10px 14px;
+  color: #ffffff;
+  font-size: 14px;
+  outline: none;
+  width: 100%;
+  transition: border-color 0.2s ease;
+}
+
+.role-input-row input:focus {
+  border-color: #3b82f6;
+}
+
+.remove-role-field-btn {
+  background: transparent;
+  border: none;
+  color: #ef4444;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 8px;
+  transition: color 0.2s ease;
+}
+
+.remove-role-field-btn:hover {
+  color: #f87171;
+}
+
+.add-role-field-trigger {
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px dashed rgba(59, 130, 246, 0.3);
+  color: #3b82f6;
+  padding: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  width: 100%;
+  text-align: center;
+  transition: all 0.2s ease;
+  margin-bottom: 24px;
+}
+
+.add-role-field-trigger:hover {
+  background: rgba(59, 130, 246, 0.15);
+  border-color: #3b82f6;
+}
+
+.hero-mgmt-action-bar {
+  display: flex;
+  width: 100%;
+}
+
+.primary-action-dispatch-btn {
+  background-color: #3b82f6;
+  color: #ffffff;
+  border: none;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 100%; /* Ensures button fills workspace card container width fluidly */
+  transition: background-color 0.2s ease;
+}
+
+.primary-action-dispatch-btn:hover:not(:disabled) {
+  background-color: #2563eb;
+}
+
+.primary-action-dispatch-btn:disabled {
+  background-color: #1e293b;
+  color: #64748b;
+  cursor: not-allowed;
+}
+
+/* ==========================================================================
+   4. RIGHT COLUMN: ACTIVE DATABASE STREAM MONITOR
+   ========================================================================== */
+.hero-display-stream {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.grid-display-header-title {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #64748b;
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+.empty-roles-fallback-card {
+  background: rgba(15, 23, 42, 0.4);
+  border: 1px dashed #1e293b;
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.hero-cards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.hero-item-card {
+  background: #0f172a;
+  border: 1px solid #1e293b;
+  border-radius: 12px;
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  transition: border-color 0.2s ease;
+}
+
+.hero-item-card:hover {
+  border-color: #3b82f6;
+}
+
+.hero-card-main-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1; /* Allows text strings to take up optimal container spacing */
+}
+
+.hero-badge-mono {
+  font-family: monospace;
+  font-size: 11px;
+  color: #475569;
+}
+
+.hero-role-display-text {
+  font-size: 15px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+  word-break: break-word; /* Prevents long titles from running off card containers */
+}
+
+/* Administrative Drop Action Trigger Button */
+.card-administrative-actions-row {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.crud-control-btn-drop {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.crud-control-btn-drop:hover:not(:disabled) {
+  background: #ef4444;
+  color: #ffffff;
+  border-color: #ef4444;
+}
+
+.crud-control-btn-drop:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ==========================================================================
+   5. OPERATIONAL UTILITIES & ALERTS (FEEDBACK STYLES)
+   ========================================================================== */
+.form-feedback-alert {
+  padding: 12px 16px;
+  border-radius: 6px;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+.success-alert {
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  color: #34d399;
+}
+
+.error-alert {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  color: #f87171;
+}
+
+.hero-mgmt-loading {
+  padding: 60px 20px;
+  text-align: center;
+  color: #64748b;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   6. Mobile Responsive Overrides (Desktop-First Strategy)
+   ========================================================================== */
+@media (max-width: 580px) {
+  .hero-mgmt-container {
+    padding: 16px 8px;
+  }
+
+  .hero-mgmt-card {
+    padding: 24px 16px; /* Captures expanded layout spacing on mobile screens */
+  }
+
+  .role-input-row {
+    gap: 8px; /* Tightens input row alignments */
+  }
+
+  .role-index-lbl {
+    font-size: 12px;
+    min-width: 18px;
+  }
+
+  .role-input-row input {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+
+  .hero-item-card {
+    flex-direction: column; /* Transforms horizontal list cards into top-to-bottom layout grids */
+    align-items: stretch;
+    gap: 14px;
+    padding: 16px;
+  }
+
+  .card-administrative-actions-row {
+    border-top: 1px solid #1e293b;
+    padding-top: 10px;
+    justify-content: flex-end; /* Pushes Drop operations button cleanly to the right side edge */
+  }
+  
+  .crud-control-btn-drop {
+    width: 100%; /* Spans full space rows for crisp touch targets on phones */
+    padding: 8px;
+    text-align: center;
+  }
+}

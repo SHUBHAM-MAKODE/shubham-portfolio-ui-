@@ -1,0 +1,289 @@
+/* ==========================================================================
+   1. Section Structural Layout
+   ========================================================================== */
+.work-section {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px; /* Reduced from 80px to align properly inside dashboard wrappers */
+}
+
+.work-heading {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 44px;
+  letter-spacing: -0.02em;
+  text-align: center; /* Center balances the section headings across all devices */
+}
+
+/* Fluid Auto-Scaling Dashboard Showcase Grid */
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 32px;
+  width: 100%;
+}
+
+/* Master Presentation Card Shell Frame */
+.work-card {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  border: 1px solid #1e293b;
+  background-color: #0f172a;
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+}
+
+.project-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.work-card:hover .project-img {
+  transform: scale(1.05);
+}
+
+/* Slide-Up Overlay Panel styling */
+.project-hover-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, #020617 15%, rgba(15, 23, 42, 0.8) 100%);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 32px;
+  box-sizing: border-box;
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.work-card:hover .project-hover-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.overlay-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 8px 0;
+}
+
+.overlay-desc {
+  font-size: 0.95rem;
+  color: #94a3b8;
+  margin: 0 0 20px 0;
+  line-height: 1.5;
+}
+
+.read-more-btn {
+  background: #3b82f6;
+  border: none;
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.read-more-btn:hover {
+  background: #2563eb;
+  transform: translateX(4px);
+}
+
+/* ==========================================================================
+   2. Full Portal Modal Overlay System Layout
+   ========================================================================== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(2, 6, 23, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  padding: 20px;
+  box-sizing: border-box;
+  animation: fadeIn 0.25s ease;
+}
+
+.modal-content {
+  background-color: #0f172a;
+  border: 1px solid #1e293b;
+  width: 100%;
+  max-width: 650px;
+  max-height: 90vh; /* Safety limit: prevents modal from clipping out of small screens */
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+  animation: slideUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.close-modal-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: #020617ba;
+  border: 1px solid #1e293b;
+  color: #94a3b8;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.close-modal-btn:hover {
+  color: #ffffff;
+  background-color: #ef4444;
+  border-color: #ef4444;
+}
+
+.modal-img-wrapper {
+  width: 100%;
+  max-height: 260px;
+  overflow: hidden;
+  border-bottom: 1px solid #1e293b;
+  flex-shrink: 0; /* Prevents text boxes from crunching down the image size */
+}
+
+.modal-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modal-body {
+  padding: 32px;
+  overflow-y: auto; /* Lets descriptions scroll fluidly inside standard phone windows */
+  max-height: 100%;
+}
+
+.modal-body h2 {
+  font-size: 1.75rem;
+  color: #ffffff;
+  margin: 0 0 16px 0;
+  font-weight: 800;
+}
+
+.modal-tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.modal-tag {
+  background-color: #020617;
+  color: #3b82f6;
+  border: 1px solid #1e293b;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.modal-full-desc {
+  font-size: 0.95rem;
+  color: #cbd5e1;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Keyframes Animations track */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+/* ==========================================================================
+   3. Media Queries (Desktop-First Strategy)
+   ========================================================================== */
+
+/* 1. TABLET AND INTERMEDIATE PORTS (Less than 770px) */
+@media (max-width: 770px) {
+  .work-grid {
+    gap: 20px; /* Tightens grid gaps */
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  }
+
+  .work-card {
+    aspect-ratio: auto; /* Frees layout constraints */
+    height: 320px;
+  }
+
+  /* Core UI Fix: Makes project cards look intentional and legible on touchscreens without hover actions */
+  .project-hover-overlay {
+    opacity: 1;
+    transform: translateY(0);
+    background: linear-gradient(to top, #020617 35%, rgba(2, 6, 23, 0.6) 100%);
+    padding: 24px;
+  }
+
+  .overlay-title {
+    font-size: 1.35rem;
+  }
+
+  .overlay-desc {
+    font-size: 0.9rem;
+    margin-bottom: 16px;
+  }
+}
+
+/* 2. SMALL SMARTPHONES (Less than 640px) */
+@media (max-width: 640px) {
+  .work-section {
+    padding: 20px 12px;
+  }
+
+  .work-heading {
+    font-size: 2rem;
+    margin-bottom: 32px;
+  }
+
+  .modal-overlay {
+    padding: 10px; /* Expands interactive screen canvas to card limits */
+  }
+
+  .modal-content {
+    max-height: 95vh;
+  }
+
+  .modal-img-wrapper {
+    max-height: 180px; /* Shrinks picture windows to maximize reading text space on mobile */
+  }
+
+  .modal-body {
+    padding: 24px 16px;
+  }
+
+  .modal-body h2 {
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+  }
+}

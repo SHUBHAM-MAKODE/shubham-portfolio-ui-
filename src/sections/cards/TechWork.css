@@ -1,0 +1,227 @@
+/* ==========================================================================
+   1. Section Structural Layout
+   ========================================================================== */
+.tech-work-display {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 24px; /* Scaled down from 80px to prevent layout compounding inside dashboard wrappers */
+  box-sizing: border-box;
+}
+
+.tech-heading {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  text-align: center; /* Center aligns headings cleanly across wide monitors */
+}
+
+.tech-loading-state {
+  color: #64748b;
+  text-align: center;
+  padding: 100px 24px;
+  font-size: 14px;
+  font-family: monospace;
+}
+
+/* Fluid Adaptive Grid Layout Track */
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 24px; /* Expanded slightly for pristine drop-shadow distributions */
+  width: 100%;
+  justify-content: center; /* Centers uneven grid items on medium displays */
+}
+
+/* Individual Grid Card Node Container Frame */
+.tech-card {
+  position: relative;
+  background-color: rgba(30, 41, 59, 0.3); /* Balanced dark container tint to showcase transparent vector icons */
+  border: 1px solid #1e293b;
+  border-radius: 50%; /* Clean circular asset shell boundaries */
+  aspect-ratio: 1 / 1; /* Locks layout proportions tightly to a perfect circle asset frame */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  cursor: pointer;
+  transition:
+    border-color 0.3s ease,
+    background-color 0.3s ease,
+    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tech-card:hover {
+  transform: translateY(-6px);
+  border-color: #3b82f6; /* Portfolio accent blue highlight */
+  background-color: rgba(30, 41, 59, 0.6);
+  box-shadow: 0 12px 24px -10px rgba(59, 130, 246, 0.4);
+}
+
+.tech-icon {
+  width: 55px;
+  height: 55px;
+  object-fit: contain;
+  z-index: 2;
+  transition:
+    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.3s ease;
+}
+
+.tech-card:hover .tech-icon {
+  transform: scale(0.85);
+  opacity: 0.12; /* Subtly minimizes visibility as copy metrics focus shifts inward */
+}
+
+/* Slide-Up Hover Content Interaction Engine Overlay */
+.tech-hover-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(15, 23, 42, 0.92) 0%,
+    rgba(2, 6, 23, 0.96) 100-percent
+  );
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px;
+  box-sizing: border-box;
+  opacity: 0;
+  z-index: 3;
+  transform: translateY(100%); /* Hides info parameters below card clipping thresholds natively */
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tech-card:hover .tech-hover-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.tech-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+
+.tech-stars {
+  font-size: 0.8rem;
+  color: #3b82f6; /* Ported custom highlight neon profile color matrices */
+  letter-spacing: 1px;
+}
+
+/* ==========================================================================
+   2. Media Queries & Responsive Structural Rebalancing
+   ========================================================================== */
+
+/* TABLETS & TOUCH INTERFACES (770px Max-Width) */
+@media (max-width: 770px) {
+  .tech-heading {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+
+  .tech-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* Downscales circles for tablet rows */
+    gap: 16px;
+  }
+
+  /* CRITICAL INTERFACE FIX: Prevents broken touch sticky-locks by changing circular items to layout blocks */
+  .tech-card {
+    border-radius: 14px; /* Changes card architecture to soft rounded squares */
+    aspect-ratio: auto;
+    height: 130px;
+    flex-direction: column;
+    padding: 16px 12px;
+    background-color: rgba(15, 23, 42, 0.45);
+    border-color: rgba(30, 41, 59, 0.8);
+    gap: 12px;
+  }
+  
+  .tech-card:hover {
+    transform: none; /* Disables floating translations to maintain touch scroll stability */
+    background-color: rgba(15, 23, 42, 0.45);
+    border-color: rgba(30, 41, 59, 0.8);
+    box-shadow: none;
+  }
+
+  .tech-icon {
+    width: 44px;
+    height: 44px;
+    opacity: 1 !important; /* Forces logos to remain visible */
+    transform: none !important;
+  }
+
+  /* Transforms slide-up card overlay engine into clean text layers placed directly below badges */
+  .tech-hover-overlay {
+    position: static; /* Drops absolute rendering locks */
+    opacity: 1;
+    transform: none !important;
+    background: transparent;
+    padding: 0;
+    width: 100%;
+    height: auto;
+    gap: 4px;
+  }
+
+  .tech-name {
+    font-size: 0.9rem;
+    color: #ffffff;
+  }
+
+  .tech-stars {
+    font-size: 0.75rem;
+    color: #fbbf24; /* Switched rating star configurations onto gold for improved text contrast rules */
+  }
+}
+
+/* PORTRAIT SMARTPHONES (420px Max-Width) */
+@media (max-width: 420px) {
+  .tech-work-display {
+    padding: 24px 12px;
+  }
+
+  .tech-heading {
+    font-size: 1.6rem;
+    margin-bottom: 24px;
+  }
+
+  .tech-grid {
+    grid-template-columns: repeat(auto-fill, minmax(95px, 1fr)); /* Seamless double-column flow configurations on tiny devices */
+    gap: 12px;
+  }
+
+  .tech-card {
+    height: 110px;
+    padding: 12px 8px;
+    gap: 8px;
+  }
+
+  .tech-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .tech-name {
+    font-size: 0.8rem;
+  }
+
+  .tech-stars {
+    font-size: 0.65rem;
+    letter-spacing: 0;
+  }
+}

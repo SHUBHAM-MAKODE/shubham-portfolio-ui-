@@ -1,0 +1,165 @@
+.whatIdo-card-container {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px 5px 30px 5px; /* Added bottom padding to accommodate a clean scrollbar */
+
+  overflow-x: auto; /* Restores clean native scrolling behavior */
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch; /* Crisp fluid momentum scrolling on mobile platforms */
+  scrollbar-width: thin; /* Clean layout fallback for Firefox */
+  scrollbar-color: rgba(99, 136, 246, 0.3) rgba(255, 255, 255, 0.02);
+}
+
+/* Sleek minimalist scrollbar to replace the old hidden track for clean UX */
+.whatIdo-card-container::-webkit-scrollbar {
+  height: 6px;
+  display: block;
+}
+
+.whatIdo-card-container::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 10px;
+}
+
+.whatIdo-card-container::-webkit-scrollbar-thumb {
+  background: rgba(99, 136, 246, 0.3);
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+.whatIdo-card-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 136, 246, 0.6);
+}
+
+/* ==========================================================================
+   5. Child Component Card Structural Overrides (Double-Layered Glass)
+   ========================================================================== */
+.whatIdo-card {
+  height: 380px;
+  width: 280px;
+  background: rgba(30, 30, 32, 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px 20px;
+  border-radius: 18px;
+  flex-shrink: 0;
+
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition:
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.whatIdo-card {
+  user-select: text;
+}
+
+.whatIdo-card:hover {
+  transform: translateY(-8px);
+  background: rgba(30, 30, 32, 0.7);
+  border-color: rgba(99, 136, 246, 0.4);
+  box-shadow:
+    0px 15px 30px rgba(0, 0, 0, 0.3),
+    0px 0px 20px rgba(99, 136, 246, 0.2);
+}
+
+.whatIdo-card img {
+  height: 110px;
+  width: 110px;
+  margin-bottom: 15px;
+  border-radius: 50%;
+  object-fit: contain;
+  background-color: #ffffff;
+  box-shadow: 0px 8px 20px rgba(99, 136, 246, 0.25);
+  padding: 2px;
+  transition: transform 0.3s ease;
+}
+
+.whatIdo-card:hover img {
+  transform: scale(1.05);
+}
+
+.whatIdo-card-text {
+  text-align: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.whatIdo-card-text h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.whatIdo-card-text p {
+  font-size: 0.9rem;
+  color: #cbd5e1;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ==========================================================================
+   6. Media Queries & Mobile System Configurations
+   ========================================================================== */
+@media (max-width: 770px) {
+  /* Updated from 768px to sync precisely with dashboard definitions */
+  .whatido-section-bg {
+    width: 100%;
+    padding: 40px 20px;
+    background: rgba(18, 18, 18, 0.8);
+  }
+
+  .whatido-heading {
+    font-size: 2.1rem;
+    margin-bottom: 20px;
+  }
+
+  /* CRITICAL INTERFACE FIX: Transforms side scrolling tracker into a beautiful vertical stack block list */
+  .whatIdo-card-container {
+    flex-direction: column;
+    overflow-x: visible; /* Disables horizontal slider clipping tracks */
+    overflow-y: visible;
+    gap: 24px;
+    padding: 10px 0;
+    width: 100%;
+  }
+
+  .whatIdo-card {
+    height: auto; /* Lets cards stretch content heights fluidly down screens */
+    width: 100%;
+    max-width: 340px; /* Restrains cards from layout distortion on intermediate sizes */
+    background: rgba(30, 30, 32, 0.6);
+    padding: 24px 20px;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .whatIdo-card:hover {
+    transform: none; /* Disables floating vertical translations to keep touchscreen swipe tracks stable */
+    box-shadow: none;
+    border-color: rgba(255, 255, 255, 0.05);
+  }
+
+  .whatIdo-card img {
+    height: 90px;
+    width: 90px;
+    margin-bottom: 0;
+  }
+}
