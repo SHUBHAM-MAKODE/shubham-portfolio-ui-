@@ -1,7 +1,9 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL||"https://shubham-portfolio-api-3i28.onrender.com/api"||"http://localhost:8081/api",
+  baseURL:
+    "https://shubham-portfolio-api-3i28.onrender.com/api" ||
+    "http://localhost:8081/api",
   headers: {
     "Content-Type": "application/json",
   },
