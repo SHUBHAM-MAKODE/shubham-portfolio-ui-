@@ -9,11 +9,13 @@ import Work from '../sections/Work'
 import Contact from '../sections/Contact'
 import Footer from '../sections/Footer'
 import { usePublicPortfolio } from '../contexts/PublicContext'
+// 🌟 Import Link from your routing framework package
+import { Link } from 'react-router'
 
 const DashBoard = () => {
     const { hubData } = usePublicPortfolio();
     const { roles, education, experiences, projects, resumes, services, skills, loading } = hubData || {};
-    
+
     // State to handle opening and closing of mobile menu
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -27,13 +29,13 @@ const DashBoard = () => {
                 <PrismBackground />
             </div>
             <div className="content-layer">
-                
+
                 {/* Navbar section */}
-                <div className="nav-container"> {/* Fixed typo: nav-continer -> nav-container */}
+                <div className="nav-container">
                     <div className="logo">
-                        Shubham Makode {/* Fixed typo: Shuham -> Shubham */}
+                        Subham Makode
                     </div>
-                    
+
                     {/* The menu links toggle class based on state */}
                     <div className={`nav-link ${isMenuOpen ? 'active' : ''}`}>
                         <a href="#hero" onClick={() => setIsMenuOpen(false)}>Home</a>
@@ -42,6 +44,15 @@ const DashBoard = () => {
                         <a href="#experience" onClick={() => setIsMenuOpen(false)}>Qualifications</a>
                         <a href="#work" onClick={() => setIsMenuOpen(false)}>Work</a>
                         <a href="#contact" onClick={() => setIsMenuOpen(false)}>Contact</a>
+
+                        {/* 🌟 LOGIN BUTTON: Integrated cleanly inside the nav menu links array */}
+                        <Link
+                            to="/admin/login"
+                            className="nav-login-btn"
+                            onClick={() => setIsMenuOpen(false)}
+                        >
+                            Admin Login
+                        </Link>
                     </div>
 
                     {/* 3-Line Hamburger Button */}
@@ -53,16 +64,16 @@ const DashBoard = () => {
                 </div>
 
                 <div id="hero" className='block-container'>
-                    <Hero roles={roles}/>
-                </div> 
+                    <Hero roles={roles} />
+                </div>
                 <div id="about" className='block-container'>
                     <About />
-                </div> 
+                </div>
                 <div id="passion" className='block-container'>
-                    <WhatIdo services={services}/>
+                    <WhatIdo services={services} />
                 </div>
                 <div id="experience" className='block-container'>
-                    <Qualification data={{experiences,education,resumes,skills}} />
+                    <Qualification data={{ experiences, education, resumes, skills }} />
                 </div>
                 <div id="work" className='block-container'>
                     <Work projects={projects} />
@@ -71,7 +82,7 @@ const DashBoard = () => {
                     <Contact />
                 </div>
                 <div id="footer" className='footer-cont'>
-                    <Footer resumes={resumes}/>
+                    <Footer resumes={resumes} />
                 </div>
             </div>
         </div>
