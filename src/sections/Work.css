@@ -66,7 +66,9 @@
   box-sizing: border-box;
   opacity: 0;
   transform: translateY(15px);
-  transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .work-card:hover .project-hover-overlay {
@@ -98,7 +100,9 @@
   font-weight: 600;
   cursor: pointer;
   align-self: flex-start;
-  transition: background 0.2s, transform 0.2s;
+  transition:
+    background 0.2s,
+    transform 0.2s;
 }
 
 .read-more-btn:hover {
@@ -218,8 +222,24 @@
 }
 
 /* Keyframes Animations track */
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-@keyframes slideUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
 
 /* ==========================================================================
    3. Media Queries (Desktop-First Strategy)
@@ -286,4 +306,33 @@
     font-size: 1.4rem;
     margin-bottom: 12px;
   }
+}
+
+.project-links {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.project-link-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  background: #3b82f6;
+  color: #fff;
+  transition: 0.3s ease;
+}
+
+.project-link-btn:hover {
+  transform: translateY(-2px);
+}
+
+.github-btn {
+  background: #111827;
+  border: 1px solid #374151;
 }

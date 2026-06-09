@@ -185,6 +185,17 @@ const Work = ({ projects = [] }) => {
                   Visit Live Site 🌐
                 </a>
               )}
+
+  {activeModalProject.githubUrl && (
+    <a
+      href={activeModalProject.githubUrl}
+      target="_blank"
+      rel="noreferrer"
+      className="project-link-btn github-btn"
+    >
+      💻 GitHub
+    </a>
+  )}
             </div>
           </div>
         </div>
