@@ -222,84 +222,165 @@
 /* ==========================================================================
    7. Media Queries & Responsive Structural Rebalancing
    ========================================================================== */
+/* /* ==========================================================================
+   7. Media Queries & Responsive Structural Rebalancing
+   ========================================================================== */
 
-/* TABLET AND MOBILES BREAKPOINT */
+/* 1. TABLET AND LAPTOP SCREEN BREAKPOINT */
 @media (max-width: 900px) {
   .experience-section {
     min-height: auto;
-    padding: 20px 10px;
+    padding: 40px 0; /* Clears massive desktop constraints */
   }
 
   .experience-section-bg {
-    flex-direction: column; /* Switches from vertical sidebar into horizontal layout stacks */
-    width: 100%;
+    flex-direction: column; /* Stacks navigation tray over the content framework */
+    width: 92%; /* Uses standard viewport sizing for medium displays */
+    margin: 0 auto;
     gap: 20px;
   }
 
   .experience-btn-container {
     width: 100%;
-    flex-direction: row; /* Generates an elegant, horizontally scrollable pill tray button bar */
+    flex-direction: row; /* Transforms sidebar lists into horizontal scroll tabs */
     overflow-x: auto;
-    padding: 4px 5px 12px 5px;
+    padding: 4px 0px 12px 0px;
     -webkit-overflow-scrolling: touch;
-    scrollbar-width: none; /* Hides horizontal slider tracks cleanly on Firefox layout layers */
+    scrollbar-width: none;
   }
 
   .experience-btn-container::-webkit-scrollbar {
-    display: none; /* Hides tracks on Chrome and Safari layers */
+    display: none;
   }
 
   .experience-btn-container button {
     text-align: center;
-    white-space: nowrap; /* Prevents text inside tabs from double-stacking awkwardly */
+    white-space: nowrap;
     padding: 12px 20px;
     flex-shrink: 0;
     font-size: 0.9rem;
   }
 
   .exp-display-block {
-    height: auto; /* Drops restrictive inner scroll framework completely for smooth mobile page scroll */
+    height: auto;
     overflow-y: visible;
-    padding: 25px 16px;
+    padding: 24px 16px; /* Optimized layout tracking for standard tablets */
     background-color: rgba(18, 18, 18, 0.2);
+    width: 100%;
+    box-sizing: border-box;
   }
 
-  /* Adjusts accordion display properties to prevent text overlapping */
   .accordion-header {
     flex-direction: column;
-    align-items: flex-start; /* Left-aligns job roles, company labels, and dates neatly */
+    align-items: flex-start;
     gap: 8px;
     padding: 16px;
   }
 
   .header-right {
     width: 100%;
-    justify-content: space-between; /* Spreads out location metrics and collapse icons safely */
+    justify-content: space-between;
     margin-left: 0;
     padding-top: 8px;
-    border-top: 1px solid rgba(255, 255, 255, 0.03); /* Tiny horizontal separator line */
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
   }
 }
 
-/* SMARTPHONES AND THIN PORTS */
+/* 2. SMARTPHONES AND MOBILE PORTRAITS (Aggressive Space Reclaiming) */
 @media (max-width: 480px) {
-  .tech-grid {
-    grid-template-columns: repeat(
-      auto-fill,
-      minmax(90px, 1fr)
-    ); /* Downscales technical boxes slightly */
+  .experience-section {
+    padding: 20px 0; /* Minimizes top/bottom vertical spacing overhead */
+  }
+
+  .experience-section-bg {
+    width: 100% !important; /* 🌟 RECLAIMED: Expands to full screen width to prevent layout squeezing */
     gap: 12px;
   }
 
-  .tech-card {
-    height: 95px;
+  .experience-btn-container {
+    padding: 4px 10px 10px 10px !important; /* Slight padding buffer only for the scrollable button pill tray */
+    gap: 8px;
+  }
+
+  .experience-btn-container button {
+    padding: 8px 14px; /* Trims down pill size footprint */
+    font-size: 0.82rem;
+    border-radius: 8px;
+  }
+
+  .exp-display-block {
+    padding: 16px 10px !important; /* 🌟 RECLAIMED: Drops heavy padding down to a minimum safety margin */
+    border-left: none !important;  /* flattens the box edges cleanly onto mobile frames */
+    border-right: none !important; 
+    border-radius: 0px !important;  /* Edge-to-edge display eliminates wasted radius margins */
+    background-color: rgba(18, 18, 18, 0.15);
+  }
+
+  /* Compact Accordion Engine Padding */
+  .accordion-item {
+    border-radius: 6px;
+    margin-bottom: 10px;
+  }
+
+  .accordion-header {
+    padding: 12px 10px !important; /* Drops internal padding to preserve maximum string text track length */
+    gap: 6px;
   }
 
   .accordion-header h3 {
-    font-size: 1.1rem; /* Balances text scale ratios */
+    font-size: 1rem;
+    line-height: 1.35;
+  }
+
+  .accordion-content {
+    padding: 0 10px !important;
+  }
+
+  .accordion-content.show {
+    padding: 8px 10px 16px 10px !important;
+  }
+
+  /* Maximizing Tech Skill Grid density */
+  .tech-grid {
+    grid-template-columns: repeat(auto-fill, minmax(75px, 1fr)) !important; /* Packs more icons per row horizontally */
+    gap: 8px !important;
+    margin-top: 12px;
+  }
+
+  .tech-card {
+    height: 80px;
+    border-radius: 8px;
+  }
+  
+  .tech-card img {
+    width: 32px; /* Scales down container graphics gracefully so content drives focus */
+    height: 32px;
+  }
+
+  /* Compact Metric Progress Cards */
+  .spec-stack {
+    gap: 12px;
+    margin-top: 12px;
   }
 
   .spec-card {
-    padding: 16px;
+    padding: 14px 10px !important;
+    border-radius: 8px;
+  }
+}
+
+/* 3. ULTRA-THIN CELPHONES (Widths less than 360px) */
+@media (max-width: 360px) {
+  .experience-btn-container button {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+
+  .exp-display-block {
+    padding: 12px 6px !important; /* Micro utility layout margins to extract absolute screen potential */
+  }
+
+  .accordion-header h3 {
+    font-size: 0.92rem;
   }
 }

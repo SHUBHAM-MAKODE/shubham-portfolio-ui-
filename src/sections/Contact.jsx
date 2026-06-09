@@ -53,7 +53,7 @@ const Contact = () => {
                             <span className="info-icon">📧</span>
                             <div className="info-text">
                                 <h4>Email Me</h4>
-                                <a href="mailto:shubhammakode93@gmail.com">shubhammakode93@gmail.com</a>
+                                <a href="mailto:shivam460551@gmail.com">shivam460551@gmail.com</a>
                             </div>
                         </div>
 
@@ -74,7 +74,7 @@ const Contact = () => {
                             <a href="https://github.com/SHUBHAM-MAKODE" target="_blank" rel="noreferrer" className="social-badge github">GitHub</a>
                             <a href="https://leetcode.com/u/shubham_makode/" target="_blank" rel="noreferrer" className="social-badge leetcode">LeetCode</a>
                         </div>
-                    </div>
+                    </div> 
                 </div>
 
                 {/* Right Column: Interactive Form Platform */}

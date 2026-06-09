@@ -15,7 +15,7 @@ const ManageProjects = () => {
     description: '',
     techStack: '', // Managed as a comma-separated text box locally
     liveUrl: '',
-    gitHubUrl: ''
+    githubUrl: ''
   });
 
   const fetchProjects = async () => {
@@ -52,7 +52,7 @@ const ManageProjects = () => {
     formData.append('description', form.description);
     formData.append('techStack', form.techStack);
     formData.append('liveUrl', form.liveUrl);
-    formData.append('gitHubUrl', form.gitHubUrl);
+    formData.append('githubUrl', form.githubUrl);
 
     if (selectedFile) {
       formData.append('file', selectedFile);
@@ -96,7 +96,7 @@ const ManageProjects = () => {
       // Map incoming string arrays back into clean user-editable strings
       techStack: Array.isArray(item.techStack) ? item.techStack.join(', ') : item.techStack || '',
       liveUrl: item.liveUrl || '',
-      gitHubUrl: item.gitHubUrl || ''
+      githubUrl: item.githubUrl || ''
     });
     setSelectedFile(null);
   };
@@ -114,7 +114,7 @@ const ManageProjects = () => {
   };
 
   const resetForm = () => {
-    setForm({ id: null, title: '', description: '', techStack: '', liveUrl: '', gitHubUrl: '' });
+    setForm({ id: null, title: '', description: '', techStack: '', liveUrl: '', githubUrl: '' });
     setSelectedFile(null);
     const fileInput = document.getElementById('project-file-input');
     if (fileInput) fileInput.value = '';
@@ -167,7 +167,7 @@ const ManageProjects = () => {
               </div>
               <div className="single-input-wrapper">
                 <label>GitHub Source Path</label>
-                <input type="text" name="gitHubUrl" value={form.gitHubUrl} onChange={handleInputChange} placeholder="https://github.com/..." />
+                <input type="text" name="githubUrl" value={form.githubUrl} onChange={handleInputChange} placeholder="https://github.com/..." />
               </div>
             </div>
 
@@ -221,7 +221,7 @@ const ManageProjects = () => {
 
                     <div className="project-links-metadata-row">
                       {item.liveUrl && <a href={item.liveUrl} target="_blank" rel="noreferrer" className="link-anchor-icon">🌐 Live Deployment</a>}
-                      {item.gitHubUrl && <a href={item.gitHubUrl} target="_blank" rel="noreferrer" className="link-anchor-icon">💻 Code Repository</a>}
+                      {item.githubUrl && <a href={item.githubUrl} target="_blank" rel="noreferrer" className="link-anchor-icon">💻 Code Repository</a>}
                     </div>
                   </div>
 
