@@ -1,10 +1,16 @@
 /* ==========================================================================
-   1. Container Hierarchy & Heading Blocks
-   ========================================================================== */
+MANAGE PROJECTS - COMPLETE RESPONSIVE CSS
+========================================================================== */
+
 .project-panel-container {
   width: 100%;
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
+}
+
+.project-header-block {
+  margin-bottom: 24px;
 }
 
 .project-header-block h3 {
@@ -16,67 +22,81 @@
 
 .project-header-block p {
   font-size: 13px;
-  color: #64748b;
-  margin-top: 4px;
-  margin-bottom: 24px;
+  color: #94a3b8;
+  margin-top: 6px;
+  line-height: 1.6;
 }
 
-/* Two-Column Split Layout Configuration */
+/* ==========================================================================
+MAIN LAYOUT
+========================================================================== */
+
 .project-split-workspace {
   display: grid;
   grid-template-columns: 1fr;
   gap: 32px;
+  width: 100%;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1025px) {
   .project-split-workspace {
-    grid-template-columns: 5fr 7fr; /* Input desk scales on the left, data stream on the right */
+    grid-template-columns: 400px 1fr;
+    align-items: start;
   }
 }
 
 /* ==========================================================================
-   2. Form Panel Layout Cards & Fields Architecture
-   ========================================================================== */
+FORM PANEL
+========================================================================== */
+
 .project-form-card {
-  background: rgba(15, 23, 42, 0.4);
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(12px);
   border: 1px solid #1e293b;
-  border-radius: 16px;
+  border-radius: 18px;
   padding: 24px;
-  height: fit-content;
+  box-sizing: border-box;
 }
 
-.form-action-title, .grid-display-header-title {
+@media (min-width: 1025px) {
+  .project-form-card {
+    position: sticky;
+    top: 20px;
+  }
+}
+
+.form-action-title,
+.grid-display-header-title {
+  margin: 0 0 20px;
   font-size: 14px;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
   color: #ffffff;
-  margin-top: 0;
-  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
 }
 
 .plain-styled-form {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 18px;
 }
 
 .form-group-row {
   display: grid;
-  grid-template-columns: 1fr; /* Default to single column for clean mobile inputs */
+  grid-template-columns: 1fr;
   gap: 16px;
 }
 
-@media (min-width: 520px) {
+@media (min-width: 600px) {
   .form-group-row {
-    grid-template-columns: 1fr 1fr; /* Restores side-by-side URL inputs on tablets and up */
+    grid-template-columns: 1fr 1fr;
   }
 }
 
 .single-input-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
 }
 
 .single-input-wrapper label {
@@ -84,323 +104,409 @@
   font-weight: 600;
   color: #94a3b8;
   text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .plain-styled-form input[type="text"],
 .plain-styled-form textarea {
+  width: 100%;
   background: #020617;
   border: 1px solid #1e293b;
-  border-radius: 8px;
-  padding: 10px 12px;
-  font-size: 13px;
+  border-radius: 10px;
+  padding: 12px 14px;
   color: #ffffff;
-  outline: none;
+  font-size: 14px;
   font-family: inherit;
-  width: 100%;
-  transition: border-color 0.2s ease;
+  outline: none;
+  transition: all 0.25s ease;
+  box-sizing: border-box;
 }
 
 .plain-styled-form textarea {
   resize: vertical;
+  min-height: 120px;
 }
 
 .plain-styled-form input:focus,
 .plain-styled-form textarea:focus {
   border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.12);
+}
+
+.plain-styled-form input::placeholder,
+.plain-styled-form textarea::placeholder {
+  color: #64748b;
 }
 
 .file-upload-wrapper-box {
   background: #020617;
-  border: 1px dashed #1e293b;
-  padding: 16px;
+  border: 1px dashed #334155;
   border-radius: 12px;
+  padding: 16px;
 }
 
 .file-binary-selector {
-  font-size: 12px;
-  color: #94a3b8;
-  margin-top: 4px;
   width: 100%;
+  color: #94a3b8;
+  font-size: 13px;
+  margin-top: 4px;
 }
 
-/* Operational Dispatch Buttons */
+/* ==========================================================================
+FORM BUTTONS
+========================================================================== */
+
 .form-execution-action-bar {
   display: flex;
   gap: 12px;
-  margin-top: 8px;
-  flex-wrap: wrap; /* Safety wrapping if buttons crowd narrow mobile screens */
+  flex-wrap: wrap;
 }
 
 .primary-action-dispatch-btn {
   flex: 1;
-  background: #10b981;
-  color: #020617;
+  min-height: 46px;
   border: none;
   border-radius: 10px;
-  padding: 12px;
+  background: #10b981;
+  color: #020617;
   font-size: 13px;
   font-weight: 700;
   cursor: pointer;
-  white-space: nowrap;
-  transition: background-color 0.2s ease;
+  transition: all 0.25s ease;
 }
 
 .primary-action-dispatch-btn:hover {
   background: #34d399;
+  transform: translateY(-2px);
 }
 
 .primary-action-dispatch-btn:disabled {
-  opacity: 0.4;
+  opacity: 0.5;
   cursor: not-allowed;
+  transform: none;
 }
 
 .secondary-cancel-btn {
-  background: transparent;
-  border: 1px solid #1e293b;
-  color: #94a3b8;
-  padding: 12px 16px; /* Balanced padding height matching dispatch options */
+  min-height: 46px;
   border-radius: 10px;
-  font-size: 13px;
+  border: 1px solid #334155;
+  background: transparent;
+  color: #94a3b8;
+  padding: 0 18px;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.25s ease;
 }
 
 .secondary-cancel-btn:hover {
-  background: rgba(30, 41, 59, 0.3);
+  background: rgba(30, 41, 59, 0.4);
   color: #ffffff;
 }
 
 /* ==========================================================================
-   3. Right Viewport: Active Repository Profiles Stream
-   ========================================================================== */
+PROJECT LIST AREA
+========================================================================== */
+
 .project-display-stream {
-  display: flex;
-  flex-direction: column;
+  width: 100%;
 }
 
 .empty-table-fallback-card {
   text-align: center;
-  padding: 48px;
-  border: 1px dashed #1e293b;
+  padding: 50px 20px;
   border-radius: 16px;
+  border: 1px dashed #334155;
   color: #64748b;
-  font-size: 13px;
+  background: rgba(15, 23, 42, 0.25);
 }
+
+/* ==========================================================================
+PROJECT GRID
+========================================================================== */
 
 .project-cards-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  max-height: 720px;
-  overflow-y: auto;
-  padding-right: 4px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+  width: 100%;
 }
 
-.project-cards-grid::-webkit-scrollbar {
-  width: 4px;
-}
-.project-cards-grid::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 4px;
-}
+/* ==========================================================================
+PROJECT CARD
+========================================================================== */
 
 .project-item-card {
-  background: rgba(15, 23, 42, 0.2);
+  background: rgba(15, 23, 42, 0.55);
   border: 1px solid #1e293b;
-  border-radius: 16px;
+  border-radius: 18px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
 }
+
+.project-item-card:hover {
+  transform: translateY(-4px);
+  border-color: #334155;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* ==========================================================================
+IMAGE
+========================================================================== */
 
 .project-card-image-box {
   width: 100%;
-  height: 180px;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
   background: #020617;
   border-bottom: 1px solid #1e293b;
-  flex-shrink: 0;
 }
 
 .project-card-image-box img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.4s ease;
 }
+
+.project-item-card:hover .project-card-image-box img {
+  transform: scale(1.05);
+}
+
+/* ==========================================================================
+CARD CONTENT
+========================================================================== */
 
 .project-card-details-box {
   padding: 20px;
+  display: flex;
+  flex-direction: column;
   flex: 1;
 }
 
 .project-card-details-box h5 {
-  font-size: 16px;
-  font-weight: 700;
+  margin: 0 0 10px;
+  font-size: 18px;
   color: #ffffff;
-  margin: 0 0 8px 0;
+  font-weight: 700;
+  line-height: 1.4;
 }
 
 .project-description-paragraph {
-  font-size: 13px;
+  margin: 0 0 18px;
   color: #94a3b8;
-  line-height: 1.6;
-  margin: 0 0 16px 0;
-  user-select: text;
+  font-size: 13px;
+  line-height: 1.7;
+  word-break: break-word;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
-/* Technology Stack Badges Row */
+/* ==========================================================================
+TECH STACK
+========================================================================== */
+
 .tech-tags-flex-wrap {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
-  margin-bottom: 16px;
+  gap: 8px;
+  margin-bottom: 18px;
 }
 
 .tech-chip-tag {
-  font-size: 10px;
-  font-family: monospace;
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: 11px;
   font-weight: 600;
   color: #10b981;
   background: rgba(16, 185, 129, 0.08);
-  border: 1px solid rgba(16, 185, 129, 0.15);
-  padding: 2px 8px;
-  border-radius: 4px;
+  border: 1px solid rgba(16, 185, 129, 0.2);
 }
 
-/* Metadata URLs Links row */
+/* ==========================================================================
+LINKS
+========================================================================== */
+
 .project-links-metadata-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
-  font-size: 12px;
+  gap: 10px;
+  margin-top: auto;
 }
 
 .link-anchor-icon {
-  color: #60a5fa;
   text-decoration: none;
-  font-weight: 500;
+  color: #60a5fa;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 7px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  background: rgba(59, 130, 246, 0.08);
+  transition: all 0.25s ease;
 }
 
 .link-anchor-icon:hover {
-  text-decoration: underline;
+  background: rgba(59, 130, 246, 0.15);
+  transform: translateY(-2px);
 }
 
-/* Administrative Lower Controls Row */
+/* ==========================================================================
+ACTION BAR
+========================================================================== */
+
 .card-administrative-actions-row {
   display: flex;
   justify-content: flex-end;
-  gap: 8px;
+  gap: 10px;
+  padding: 16px 20px;
   border-top: 1px solid #1e293b;
-  padding: 12px 20px;
-  background: rgba(2, 6, 23, 0.2);
+  background: rgba(2, 6, 23, 0.4);
 }
 
-.crud-control-btn-edit, .crud-control-btn-delete {
-  font-size: 11px;
+.crud-control-btn-edit,
+.crud-control-btn-delete {
+  min-width: 110px;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-size: 12px;
   font-weight: 700;
-  text-transform: uppercase;
-  padding: 6px 12px;
-  border: none;
-  border-radius: 6px;
   cursor: pointer;
-  transition: opacity 0.2s ease;
+  transition: all 0.25s ease;
 }
 
 .crud-control-btn-edit {
-  background: rgba(59, 130, 246, 0.1);
-  border: 1px solid rgba(59, 130, 246, 0.2);
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  background: rgba(59, 130, 246, 0.08);
   color: #60a5fa;
 }
 
+.crud-control-btn-edit:hover {
+  background: rgba(59, 130, 246, 0.15);
+}
+
 .crud-control-btn-delete {
-  background: rgba(239, 68, 68, 0.1);
-  border: 1px solid rgba(239, 68, 68, 0.2);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  background: rgba(239, 68, 68, 0.08);
   color: #f87171;
 }
 
-.crud-control-btn-edit:hover, .crud-control-btn-delete:hover {
-  opacity: 0.8;
+.crud-control-btn-delete:hover {
+  background: rgba(239, 68, 68, 0.15);
 }
 
-/* System Loading Containers */
+/* ==========================================================================
+LOADING STATE
+========================================================================== */
+
 .project-loading-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 80px 0;
+  padding: 100px 0;
 }
 
 .loading-pulse-text {
   font-size: 14px;
-  font-weight: 600;
   color: #94a3b8;
-  letter-spacing: 0.05em;
-  animation: projectPulse 1.5s infinite ease-in-out;
+  font-weight: 600;
+  animation: pulseAnimation 1.5s infinite ease-in-out;
 }
 
-@keyframes projectPulse {
-  0%, 100% { opacity: 0.5; }
-  50% { opacity: 1; }
+@keyframes pulseAnimation {
+  0% {
+    opacity: 0.4;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.4;
+  }
 }
 
 /* ==========================================================================
-   4. Mobile Responsive Adaptations (Desktop-First Strategy)
-   ========================================================================== */
+TABLET
+========================================================================== */
 
-/* TABLETS AND MID-SIZE SCREENS */
-@media (min-width: 680px) and (max-width: 1200px) {
-  .project-item-card {
-    flex-direction: row; /* Converts vertical list columns into a horizontal alignment block layout */
-    align-items: stretch;
-  }
-  
-  .project-card-image-box {
-    width: 220px; /* Allocates a dedicated sidebar width window for display photos */
-    height: auto;
-    border-bottom: none;
-    border-right: 1px solid #1e293b;
-  }
-  
-  .card-administrative-actions-row {
-    flex-direction: column; /* Stacks administrative actions vertically on the card side */
-    justify-content: center;
-    border-top: none;
-    border-left: 1px solid #1e293b;
-    padding: 16px;
+@media (max-width: 1024px) {
+  .project-cards-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   }
 }
 
-/* SMARTPHONES AND THIN PORTS */
-@media (max-width: 600px) {
+/* ==========================================================================
+MOBILE
+========================================================================== */
+
+@media (max-width: 768px) {
   .project-panel-container {
     padding: 8px 0;
   }
-  
+
   .project-form-card {
-    padding: 20px 16px;
+    padding: 18px;
   }
-  
-  .project-card-image-box {
-    height: 150px; /* Reduces landscape image bounding frameworks slightly */
+
+  .project-cards-grid {
+    grid-template-columns: 1fr;
   }
-  
+
   .project-card-details-box {
     padding: 16px;
   }
-  
-  .project-card-details-box h5 {
-    font-size: 15px;
-  }
-  
+
   .card-administrative-actions-row {
-    width: 100%;
-    justify-content: stretch;
+    flex-direction: column;
+    padding: 16px;
   }
-  
-  .card-administrative-actions-row button {
-    flex: 1; /* Stretches edit/delete choice layouts full width on phones */
-    text-align: center;
-    padding: 8px;
+
+  .crud-control-btn-edit,
+  .crud-control-btn-delete {
+    width: 100%;
+  }
+
+  .project-header-block h3 {
+    font-size: 20px;
+  }
+
+  .form-execution-action-bar {
+    flex-direction: column;
+  }
+
+  .primary-action-dispatch-btn,
+  .secondary-cancel-btn {
+    width: 100%;
+  }
+}
+
+/* ==========================================================================
+SMALL MOBILE
+========================================================================== */
+
+@media (max-width: 480px) {
+  .project-form-card {
+    padding: 16px;
+  }
+
+  .project-card-image-box {
+    aspect-ratio: 4 / 3;
+  }
+
+  .project-card-details-box h5 {
+    font-size: 16px;
+  }
+
+  .project-description-paragraph {
+    font-size: 12px;
   }
 }

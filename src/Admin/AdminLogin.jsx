@@ -4,7 +4,6 @@ import axios from 'axios';
 import './AdminLogin.css';
 import Prism from '../Background/Prism';
 
-
 const AdminLogin = () => {
   const navigate = useNavigate();
 
@@ -74,6 +73,17 @@ const AdminLogin = () => {
           <div className="admin-avatar">🔒</div>
           <h2>Admin Portal</h2>
           <p>Secure Management Access</p>
+        </div>
+
+        {/* 🌟 GUEST CREDENTIALS INFO BLOCK */}
+        <div className="guest-login-banner">
+          <div className="guest-banner-title">💡 Guest Review Access</div>
+          <div className="guest-credential-item">
+            <span>ID:</span> <strong>guest</strong>
+          </div>
+          <div className="guest-credential-item">
+            <span>Password:</span> <strong>guest123</strong>
+          </div>
         </div>
 
         <form onSubmit={handleSubmit} className="login-form">

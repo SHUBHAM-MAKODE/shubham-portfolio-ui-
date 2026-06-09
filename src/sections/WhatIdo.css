@@ -12,7 +12,7 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  /* Removed restrictive padding: 100px to prevent layout squeeze on mobile viewports */
+  padding: 80px 0;
 }
 
 /* ==========================================================================
@@ -65,19 +65,26 @@
 }
 
 /* ==========================================================================
-   4. Grid Framework Layout for Service Cards
+   4. Grid/Flex Framework Layout for Service Cards (Desktop View Default)
    ========================================================================== */
 .whatIdo-card-container {
   width: 100%;
-  display: grid;
-  /* Auto-fit engine automatically manages column expansion and responsive wrapping */
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;             /* 🌟 DESKTOP: Wraps cards elegantly if screen gets narrow */
   gap: 30px;
-  justify-content: center;
+  justify-content: center;     /* Centers your 4 cards beautifully on desktop screens */
+  align-items: center;        /* Keeps all cards equal height regardless of text content */
+}
+
+/* 🌟 Direct child selector logic to style the <WhatIdoCard /> wrappers on Desktop */
+.whatIdo-card-container > * {
+  flex: 1 1 250px;             /* Dynamically sizes cards nicely on desktops */
+  max-width: 280px;            /* Keeps cards from becoming stretched rectangles */
 }
 
 /* ==========================================================================
-   5. Responsive Breakpoint Overrides (Desktop-First Strategy)
+   5. Responsive Breakpoint Overrides (Row & Scroll for Mobile Devices)
    ========================================================================== */
 
 /* 1. TABLET BREAKPOINT (Widths less than 1024px) */
@@ -85,25 +92,24 @@
   .whatido-section-bg {
     width: 90%;
     padding: 40px 30px;
-    gap: 20px;
   }
 
   .whatido-heading {
     font-size: 2.4rem;
     margin-bottom: 40px;
   }
-  
+
   .whatIdo-card-container {
-    gap: 24px; /* Slightly tightens card gaps for tablet displays */
+    gap: 24px;
   }
 }
 
 /* 2. MOBILE SCREEN BREAKPOINT (Widths less than 770px) */
 @media (max-width: 770px) {
   .whatido-section-bg {
-    width: 100%; /* Spans full inner layout boundary widths smoothly */
+    width: 92%; 
     padding: 40px 20px;
-    border-radius: 16px; /* Softens corners on mobile wrappers */
+    border-radius: 16px;
   }
 
   .whatido-heading {
@@ -112,21 +118,64 @@
   }
 
   .whatIdo-card-container {
-    /* Switches to a single-column setup if service entries get crowded */
-    grid-template-columns: 1fr; 
-    gap: 20px;
-    max-width: 400px; /* Keeps single-column cards from becoming overly wide */
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;     /* 🌟 CRITICAL: Stops cards from wrapping downward */
+    overflow-x: auto !important;      /* 🌟 FIXED: Changed from hidden to auto to unlock scrolling track */
+    overflow-y: hidden !important;     /* Restrains unwanted vertical baseline twitching */
+    scroll-snap-type: x mandatory !important; /* Smooth swiping snapping mechanics */
+    gap: 20px !important;
+    width: 100% !important;
+    padding-bottom: 15px !important;   /* Room for your custom scrollbar track */
+    justify-content: flex-start !important;
+    -webkit-overflow-scrolling: touch; /* Butter-smooth momentum swiping on iOS Safari */
+  }
+
+  /* 🌟 FORCE MINIMUM SHAPE: Absolute priority sizing mechanics for the mapped cards */
+  .whatIdo-card-container > * {
+    flex: 0 0 280px !important;       /* 0 grow, 0 shrink, forces exact 280px horizontal profile */
+    width: 280px !important;
+    max-width: 280px !important;
+    scroll-snap-align: start !important; /* Snaps perfectly against view margins on swipe release */
+  }
+
+  /* 🎨 PREMIUM ACCENT SCROLLBAR SYSTEM */
+  .whatIdo-card-container::-webkit-scrollbar {
+    height: 6px;                      /* Clean, minimal thickness */
+    display: block !important;
+  }
+
+  .whatIdo-card-container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 10px;
+  }
+
+  .whatIdo-card-container::-webkit-scrollbar-thumb {
+    background: #6388f6;              /* Glowing blue accent thumb matches design spec */
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgba(99, 136, 246, 0.5);
   }
 }
 
 /* 3. TINY CELLPHONES (Widths less than 420px) */
 @media (max-width: 420px) {
   .whatido-section-bg {
-    padding: 30px 16px;
+    padding: 30px 15px;
+    width: 95%;
   }
 
   .whatido-heading {
     font-size: 1.8rem;
     margin-bottom: 25px;
+  }
+
+  .whatIdo-card-container {
+    gap: 15px !important;
+  }
+
+  .whatIdo-card-container > * {
+    flex: 0 0 245px !important;       /* Slightly smaller footprint so you can see the next card peeking in */
+    width: 245px !important;
+    max-width: 245px !important;
   }
 }

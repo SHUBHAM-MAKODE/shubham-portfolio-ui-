@@ -172,7 +172,7 @@
 @media (max-width: 480px) {
   .exp-card {
     padding: 20px 16px; /* Extra compact block padding for tiny phones */
-    gap: 12px;
+   
   }
 
   .exp-points {
